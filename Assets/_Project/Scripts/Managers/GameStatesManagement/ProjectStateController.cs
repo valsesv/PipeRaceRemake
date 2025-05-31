@@ -58,11 +58,11 @@ namespace valsesv._Project.Scripts.Managers.GameStatesManagement
         private void LoadBootScene()
         {
             SetState(ProjectState.Menu);
+            _sceneController.LoadScene(SceneType.Menu);
         }
 
         private void SetMenuState()
         {
-            _sceneController.LoadScene(SceneType.Menu);
             IsPlaying = false;
             OnMenuStateEvent?.Invoke();
         }
@@ -70,8 +70,7 @@ namespace valsesv._Project.Scripts.Managers.GameStatesManagement
         private void SetGameState()
         {
             if (IsPlaying) return;
-
-            _sceneController.LoadScene(SceneType.Game);
+            
             IsPlaying = true;
             OnGameStartedEvent?.Invoke();
         }

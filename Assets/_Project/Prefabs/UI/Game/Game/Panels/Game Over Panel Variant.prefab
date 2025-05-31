@@ -319,7 +319,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12992f8258294a40b6670c7330bcd3fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  closeButtons: []
+  closeButtons:
+  - {fileID: 2612755143191004569}
   canvasGroup: {fileID: 7068933931694688784}
   hideOnAwake: 1
   homeButton: {fileID: 2612755143191004569}
