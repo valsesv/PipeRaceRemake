@@ -25,9 +25,7 @@ namespace valsesv._Project.Scripts.Game
 
         private void SetRotation(ProjectState state)
         {
-            Debug.Log(Time.timeScale);
             _rotationTween?.Kill();
-            Debug.Log(state);
             if (state != ProjectState.Menu)
             {
                 return;
