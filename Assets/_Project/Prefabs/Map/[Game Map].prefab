@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2271535262625825150}
   - component: {fileID: 2873491262055532938}
+  - component: {fileID: 5629515031112005330}
   m_Layer: 0
   m_Name: Location
   m_TagString: Untagged
@@ -50,7 +51,19 @@ MonoBehaviour:
   _maxSpeed: -90
   leftMoveKeys: 6100000014010000
   rightMoveKeys: 1301000064000000
-  _currentSpeed: 0
+--- !u!114 &5629515031112005330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895175507168510575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 429260f98ca464b0a80aab73ef69871e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationSpeed: 5
 --- !u!1 &2990191864332066642
 GameObject:
   m_ObjectHideFlags: 0

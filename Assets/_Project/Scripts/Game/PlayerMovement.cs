@@ -2,8 +2,10 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using valsesv._Project.Scripts.Managers.GameStatesManagement;
+using Zenject;
 
-namespace valsesv
+namespace valsesv._Project.Scripts.Game
 {
     public class PlayerMovement : MonoBehaviour
     {
@@ -11,7 +13,8 @@ namespace valsesv
         [SerializeField] private float _maxSpeed;
         [SerializeField] private List<KeyCode> leftMoveKeys;
         [SerializeField] private List<KeyCode> rightMoveKeys;
-        [SerializeField] private float _currentSpeed;
+        [Inject] private ProjectStateController _gameStateController;
+        private float _currentSpeed;
         private float _targetSpeed;
 
         private Tween _speedTween;
@@ -23,6 +26,11 @@ namespace valsesv
 
         private void Update()
         {
+            if (_gameStateController.State != ProjectState.Game)
+            {
+                return;
+            }
+
             GetInput();
             Move();
         }

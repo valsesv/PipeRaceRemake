@@ -19,6 +19,11 @@ namespace valsesv._Project.Scripts.UI.GamePanels
             giveUpButton.onClick.AddListener(FinishGame);
         }
 
+        private void OnDestroy()
+        {
+            giveUpButton.onClick.RemoveListener(FinishGame);
+        }
+
         public override void OpenPanel()
         {
             base.OpenPanel();
@@ -37,6 +42,7 @@ namespace valsesv._Project.Scripts.UI.GamePanels
             {
                 base.CloseWindow();
                 _gameSceneManager.FinishGameInstantly();
+                GameSceneManager.PauseGameByUIWindow(false);
             };
             _projectPanelsManager.ConfirmPanel.OpenPanel();
         }
