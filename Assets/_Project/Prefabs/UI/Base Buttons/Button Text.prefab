@@ -98,7 +98,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: a8292d7c3170a7348accf3d85c0e7359, type: 3}
     - target: {fileID: 5580813908174643030, guid: 9f077040b5ba644f6bbb738ce58ce4f4, type: 3}
       propertyPath: m_Name
-      value: Button With Text Variant
+      value: Button Text
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -130,12 +130,24 @@ PrefabInstance:
       value: Play
       objectReference: {fileID: 0}
     - target: {fileID: 6122988846091542034, guid: 60b7e1aeb26234374be653b0c8e401c9, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: ccabc8953bdfb42f5bb2ab99c279534b, type: 2}
+    - target: {fileID: 6122988846091542034, guid: 60b7e1aeb26234374be653b0c8e401c9, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 613643081252263919, guid: ccabc8953bdfb42f5bb2ab99c279534b, type: 2}
+    - target: {fileID: 6122988846091542034, guid: 60b7e1aeb26234374be653b0c8e401c9, type: 3}
       propertyPath: m_VerticalAlignment
       value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 6122988846091542034, guid: 60b7e1aeb26234374be653b0c8e401c9, type: 3}
       propertyPath: m_HorizontalAlignment
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6122988846091542034, guid: 60b7e1aeb26234374be653b0c8e401c9, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8407807515042708676, guid: 60b7e1aeb26234374be653b0c8e401c9, type: 3}
       propertyPath: m_Pivot.x

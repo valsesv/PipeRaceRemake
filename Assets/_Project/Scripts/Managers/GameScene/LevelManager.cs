@@ -1,4 +1,5 @@
 using UnityEngine;
+using valsesv._Project.Scripts.Game;
 using valsesv._Project.Scripts.Managers.GameStatesManagement;
 using Zenject;
 
@@ -9,6 +10,7 @@ namespace valsesv._Project.Scripts.Managers.GameScene
         [SerializeField] private GameObject[] _levels;
 
         [Inject] private ProjectStateController _projectStateController;
+        [Inject] private LevelMovement _levelMovement;
 
         public int LevelCount => _levels.Length;
 
@@ -16,7 +18,8 @@ namespace valsesv._Project.Scripts.Managers.GameScene
         {
             _projectStateController.SetState(ProjectState.Game);
             var targetLevel = _levels[levelIndex];
-            Instantiate(targetLevel);
+            var level = Instantiate(targetLevel);
+            level.transform.SetParent(_levelMovement.transform);
         }
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using valsesv._Project.Scripts.Game;
 using valsesv._Project.Scripts.Managers.GameScene;
 using valsesv._Project.Scripts.UI.GamePanels;
 using Zenject;
@@ -11,6 +12,7 @@ namespace valsesv._Project.Scripts.Resources
         [SerializeField] private GamePanelsManager gamePanelsManager;
         [SerializeField] private MenuPanelsManager menuPanelsManager;
         [SerializeField] private LevelManager levelManager;
+        [SerializeField] private LevelMovement levelMovement;
 
         public override void InstallBindings()
         {
@@ -18,6 +20,7 @@ namespace valsesv._Project.Scripts.Resources
             Container.Bind<GamePanelsManager>().FromInstance(gamePanelsManager).AsSingle();
             Container.Bind<MenuPanelsManager>().FromInstance(menuPanelsManager).AsSingle();
             Container.Bind<LevelManager>().FromInstance(levelManager).AsSingle();
+            Container.Bind<LevelMovement>().FromInstance(levelMovement).AsSingle();
         }
     }
 }

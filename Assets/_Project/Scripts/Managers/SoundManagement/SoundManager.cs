@@ -31,7 +31,6 @@ namespace valsesv._Project.Scripts.Managers.SoundManagement
             }
 
             soundSource.PlayOneShot(audioClip);
-            Debug.Log("Sound played");
         }
     }
 }
