@@ -9,11 +9,15 @@ namespace valsesv._Project.Scripts.Resources
     {
         [SerializeField] private GameSceneManager gameSceneManager;
         [SerializeField] private GamePanelsManager gamePanelsManager;
+        [SerializeField] private MenuPanelsManager menuPanelsManager;
+        [SerializeField] private LevelManager levelManager;
 
         public override void InstallBindings()
         {
             Container.Bind<GameSceneManager>().FromInstance(gameSceneManager).AsSingle();
             Container.Bind<GamePanelsManager>().FromInstance(gamePanelsManager).AsSingle();
+            Container.Bind<MenuPanelsManager>().FromInstance(menuPanelsManager).AsSingle();
+            Container.Bind<LevelManager>().FromInstance(levelManager).AsSingle();
         }
     }
 }

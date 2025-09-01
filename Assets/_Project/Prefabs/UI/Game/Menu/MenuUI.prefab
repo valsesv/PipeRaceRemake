@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4387422185335544150}
   - component: {fileID: 1110647448005697236}
+  - component: {fileID: 7542472463274482223}
   m_Layer: 0
   m_Name: MenuUI
   m_TagString: Untagged
@@ -45,6 +46,22 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &7542472463274482223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129443855384306948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 617c89562ed0f445f9fd97190b610642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gamePanelType: 0
+  panels:
+  - {fileID: 7526812318839503920}
+  - {fileID: 7442230627854074689}
 --- !u!1001 &6901457508862360420
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -147,3 +164,25 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6037210290699660675, guid: 5b22b86fd29fb4898b6ab25d934e7c59, type: 3}
   m_PrefabInstance: {fileID: 6901457508862360420}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7442230627854074689 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4075469980457973797, guid: 5b22b86fd29fb4898b6ab25d934e7c59, type: 3}
+  m_PrefabInstance: {fileID: 6901457508862360420}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8db65cec00234fee93dba4a35f89346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7526812318839503920 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4013407541655963476, guid: 5b22b86fd29fb4898b6ab25d934e7c59, type: 3}
+  m_PrefabInstance: {fileID: 6901457508862360420}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f350b45c89467abe9f0babd89f2244, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
