@@ -11,6 +11,7 @@ namespace valsesv._Project.Scripts.UI.MenuPanels
         [SerializeField] private LevelButton _levelButton;
 
         [Inject] private LevelManager _levelManager;
+        [Inject] private DiContainer diContainer;
 
         private List<LevelButton> _levelButtons = new();
 
@@ -30,9 +31,9 @@ namespace valsesv._Project.Scripts.UI.MenuPanels
 
         private void InitLevels()
         {
-            for (int i = 1; i <= _levelManager.LevelCount; i++)
+            for (int i = 1; i < _levelManager.LevelCount; i++)
             {
-                var levelButton = Instantiate(_levelButton, _levelsParent);
+                var levelButton = diContainer.InstantiatePrefabForComponent<LevelButton>(_levelButton, _levelsParent);
                 InitLevelButton(levelButton, i);
             }
         }
