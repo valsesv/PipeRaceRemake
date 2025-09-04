@@ -20,6 +20,7 @@ namespace valsesv._Project.Scripts.Managers.GameScene
             var targetLevel = _levels[levelIndex];
             var level = Instantiate(targetLevel);
             level.transform.SetParent(_levelMovement.transform);
+            level.transform.localRotation = Quaternion.Euler(Vector3.zero);
         }
     }
 }
