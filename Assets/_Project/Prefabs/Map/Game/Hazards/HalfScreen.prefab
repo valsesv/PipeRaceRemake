@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2979390082272726937}
   - component: {fileID: 2979390082272726935}
   - component: {fileID: 7281154431676995531}
+  - component: {fileID: -7516370375307352612}
   m_Layer: 0
   m_Name: HalfScreen
   m_TagString: Untagged
@@ -133,3 +134,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.002, y: 0.0047600004, z: 0.002}
   m_Center: {x: -0.001, y: 0.0023800002, z: -0.001}
+--- !u!114 &-7516370375307352612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2979390082272726931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6e8f27adad0e41b39709ae46ef36409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

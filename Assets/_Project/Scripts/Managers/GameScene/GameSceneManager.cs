@@ -23,6 +23,18 @@ namespace valsesv._Project.Scripts.Managers.GameScene
             ContinueGame();
         }
 
+        public void WinGame()
+        {
+            FinishGame();
+            _gamePanelsManager.OpenPanel(GamePanelType.GameOver);
+        }
+
+        public void LoseGame()
+        {
+            FinishGame();
+            _gamePanelsManager.OpenPanel(GamePanelType.GameOver);
+        }
+
         public void FinishGameInstantly()
         {
             FinishGame();
@@ -41,6 +53,7 @@ namespace valsesv._Project.Scripts.Managers.GameScene
 
         private void FinishGame()
         {
+            StopGame();
         }
     }
 }

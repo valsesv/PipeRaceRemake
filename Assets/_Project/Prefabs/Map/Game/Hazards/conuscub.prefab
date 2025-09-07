@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2930839814270989428}
   - component: {fileID: 4603799860682803796}
   - component: {fileID: 3162280015512268416}
+  - component: {fileID: 197579097561766809}
   m_Layer: 0
   m_Name: conuscub
   m_TagString: Untagged
@@ -133,3 +134,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 118
   m_CollisionDetection: 0
+--- !u!114 &197579097561766809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3723512862025323937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6e8f27adad0e41b39709ae46ef36409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
