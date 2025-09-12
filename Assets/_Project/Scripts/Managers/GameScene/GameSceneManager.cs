@@ -8,10 +8,6 @@ namespace valsesv._Project.Scripts.Managers.GameScene
     {
         [Inject] private GamePanelsManager _gamePanelsManager;
 
-        private void OnDestroy()
-        {
-            ContinueGame();
-        }
 
         public static void PauseGameByUIWindow(bool isPaused)
         {
@@ -26,19 +22,16 @@ namespace valsesv._Project.Scripts.Managers.GameScene
         public void WinGame()
         {
             FinishGame();
-            _gamePanelsManager.OpenPanel(GamePanelType.GameOver);
         }
 
         public void LoseGame()
         {
             FinishGame();
-            _gamePanelsManager.OpenPanel(GamePanelType.GameOver);
         }
 
         public void FinishGameInstantly()
         {
             FinishGame();
-            _gamePanelsManager.OpenPanel(GamePanelType.GameOver);
         }
 
         private static void StopGame()
@@ -54,6 +47,7 @@ namespace valsesv._Project.Scripts.Managers.GameScene
         private void FinishGame()
         {
             StopGame();
+            _gamePanelsManager.OpenPanel(GamePanelType.GameOver);
         }
     }
 }

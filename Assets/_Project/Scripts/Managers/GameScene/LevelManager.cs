@@ -13,14 +13,39 @@ namespace valsesv._Project.Scripts.Managers.GameScene
         [Inject] private LevelMovement _levelMovement;
 
         public int LevelCount => _levels.Length;
+        public int _currentLevelIndex { get; private set; }
+
+        private GameObject _currentLevel;
 
         public void StartLevel(int levelIndex)
         {
+            if (_currentLevel != null)
+            {
+                Destroy(_currentLevel);
+            }
+            _currentLevelIndex = levelIndex;
             _projectStateController.SetState(ProjectState.Game);
             var targetLevel = _levels[levelIndex];
-            var level = Instantiate(targetLevel);
-            level.transform.SetParent(_levelMovement.transform);
-            level.transform.localRotation = Quaternion.Euler(Vector3.zero);
+            _currentLevel = Instantiate(targetLevel);
+            _currentLevel.transform.SetParent(_levelMovement.transform);
+            _currentLevel.transform.localRotation = Quaternion.Euler(Vector3.zero);
+            GameSceneManager.PauseGameByUIWindow(false);
+        }
+
+        public void RestartLevel()
+        {
+            StartLevel(_currentLevelIndex);
+        }
+
+        public void NextLevel()
+        {
+            if (_currentLevelIndex >= LevelCount)
+            {
+                Debug.LogError("No next level");
+                return;
+            }
+
+            StartLevel(_currentLevelIndex + 1);
         }
     }
 }
