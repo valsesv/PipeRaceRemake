@@ -25,5 +25,10 @@ namespace valsesv._Project.Scripts.Game
         {
             _gameSceneManager.LoseGame();
         }
+
+        public void WinGame()
+        {
+            _gameSceneManager.WinGame();
+        }
     }
 }
