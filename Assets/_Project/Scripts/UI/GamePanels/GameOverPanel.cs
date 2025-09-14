@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using valsesv._Project.Scripts.Managers.GameScene;
-using valsesv._Project.Scripts.Managers.GameStatesManagement;
 using Zenject;
 
 namespace valsesv._Project.Scripts.UI.GamePanels
@@ -12,7 +11,6 @@ namespace valsesv._Project.Scripts.UI.GamePanels
         [SerializeField] private Button nextButton;
         [SerializeField] private Button homeButton;
 
-        [Inject] private ProjectStateController _projectStateController;
         [Inject] private LevelManager _levelManager;
 
         protected override void Start()
@@ -30,6 +28,12 @@ namespace valsesv._Project.Scripts.UI.GamePanels
             nextButton.onClick.RemoveListener(NextLevel);
         }
 
+        public override void OpenPanel()
+        {
+            base.OpenPanel();
+            GameSceneManager.PauseGameByUIWindow(true);
+        }
+
         private void RestartLevel()
         {
             _levelManager.RestartLevel();
@@ -42,7 +46,7 @@ namespace valsesv._Project.Scripts.UI.GamePanels
 
         private void LoadHomeScene()
         {
-            _projectStateController.SetState(ProjectState.Menu);
+            _levelManager.FinishLevel();
         }
     }
 }

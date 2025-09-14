@@ -44,6 +44,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d4aa7d40f6a4581a78ca6bd5097e0af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &3705172071239066843
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 414742959307195870}
+  - component: {fileID: 4812134999526544951}
+  m_Layer: 0
+  m_Name: MusicHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &414742959307195870
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3705172071239066843}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2821609953079577701}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4812134999526544951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3705172071239066843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 853b14f402dc54072872f1a0193a81f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levelMusic: {fileID: 8300000, guid: e1daf69a044aa684ab7ab58fd6e275ae, type: 3}
+  _menuMusic: {fileID: 8300000, guid: 22ae2d65ecb228e42923d507bd9ecec4, type: 3}
 --- !u!1 &3853644556686185078
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,6 +225,7 @@ Transform:
   m_Children:
   - {fileID: 2111604969060346610}
   - {fileID: 5301710077955372004}
+  - {fileID: 414742959307195870}
   m_Father: {fileID: 3644290670030831197}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3300991664361590948
@@ -242,6 +289,7 @@ MonoBehaviour:
   gamePanelsManager: {fileID: 0}
   menuPanelsManager: {fileID: 0}
   levelManager: {fileID: 518338486736377153}
+  levelMovement: {fileID: 0}
 --- !u!1001 &4174406365513355678
 PrefabInstance:
   m_ObjectHideFlags: 0

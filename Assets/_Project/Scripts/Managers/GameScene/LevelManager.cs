@@ -17,19 +17,21 @@ namespace valsesv._Project.Scripts.Managers.GameScene
 
         private GameObject _currentLevel;
 
+        public void FinishLevel()
+        {
+            UnloadLevel();
+            _projectStateController.SetState(ProjectState.Menu);
+        }
+
         public void StartLevel(int levelIndex)
         {
-            if (_currentLevel != null)
-            {
-                Destroy(_currentLevel);
-            }
+            UnloadLevel();
             _currentLevelIndex = levelIndex;
             _projectStateController.SetState(ProjectState.Game);
             var targetLevel = _levels[levelIndex];
             _currentLevel = Instantiate(targetLevel);
             _currentLevel.transform.SetParent(_levelMovement.transform);
             _currentLevel.transform.localRotation = Quaternion.Euler(Vector3.zero);
-            GameSceneManager.PauseGameByUIWindow(false);
         }
 
         public void RestartLevel()
@@ -46,6 +48,15 @@ namespace valsesv._Project.Scripts.Managers.GameScene
             }
 
             StartLevel(_currentLevelIndex + 1);
+        }
+
+        private void UnloadLevel()
+        {
+            if (_currentLevel != null)
+            {
+                Destroy(_currentLevel);
+            }
+            GameSceneManager.PauseGameByUIWindow(false);
         }
     }
 }

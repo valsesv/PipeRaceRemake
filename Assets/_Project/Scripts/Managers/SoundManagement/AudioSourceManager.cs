@@ -9,7 +9,7 @@ namespace valsesv._Project.Scripts.Managers.SoundManagement
         [SerializeField] protected AudioSource soundSource;
         [SerializeField] private float baseValue = 0.5f;
 
-        private float _value;
+        protected float _value;
         protected ConfigKey ValueConfigKey;
         protected ConfigKey SwitchConfigKey;
 

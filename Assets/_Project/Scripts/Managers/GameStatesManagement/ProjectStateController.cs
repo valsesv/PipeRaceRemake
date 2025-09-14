@@ -58,7 +58,7 @@ namespace valsesv._Project.Scripts.Managers.GameStatesManagement
         private void LoadBootScene()
         {
             SetState(ProjectState.Menu);
-            _sceneController.LoadScene(SceneType.Menu);
+            //_sceneController.LoadScene(SceneType.Menu);
         }
 
         private void SetMenuState()
