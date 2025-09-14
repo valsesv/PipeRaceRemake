@@ -15,6 +15,7 @@ namespace valsesv._Project.Scripts.Managers.GameScene
         [Inject] private ProjectStateController _projectStateController;
         [Inject] private LevelMovement _levelMovement;
         [Inject] private SoundManager _soundManager;
+        [Inject] private DiContainer _container;
 
         public int LevelCount => _levels.Length;
         public int _currentLevelIndex { get; private set; }
@@ -33,7 +34,7 @@ namespace valsesv._Project.Scripts.Managers.GameScene
             _currentLevelIndex = levelIndex;
             _projectStateController.SetState(ProjectState.Game);
             var targetLevel = _levels[levelIndex];
-            _currentLevel = Instantiate(targetLevel);
+            _currentLevel = _container.InstantiatePrefab(targetLevel);
             _currentLevel.transform.SetParent(_levelMovement.transform);
             _currentLevel.transform.localRotation = Quaternion.Euler(Vector3.zero);
             PLayStartLevelMusic();
