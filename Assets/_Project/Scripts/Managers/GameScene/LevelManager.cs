@@ -1,6 +1,7 @@
 using UnityEngine;
 using valsesv._Project.Scripts.Game;
 using valsesv._Project.Scripts.Managers.GameStatesManagement;
+using valsesv._Project.Scripts.Managers.SoundManagement;
 using Zenject;
 
 namespace valsesv._Project.Scripts.Managers.GameScene
@@ -8,9 +9,12 @@ namespace valsesv._Project.Scripts.Managers.GameScene
     public class LevelManager : MonoBehaviour
     {
         [SerializeField] private GameObject[] _levels;
+        [SerializeField] private AudioClip _levelSound;
+        [SerializeField] private AudioClip _endlessLevelSound;
 
         [Inject] private ProjectStateController _projectStateController;
         [Inject] private LevelMovement _levelMovement;
+        [Inject] private SoundManager _soundManager;
 
         public int LevelCount => _levels.Length;
         public int _currentLevelIndex { get; private set; }
@@ -32,6 +36,7 @@ namespace valsesv._Project.Scripts.Managers.GameScene
             _currentLevel = Instantiate(targetLevel);
             _currentLevel.transform.SetParent(_levelMovement.transform);
             _currentLevel.transform.localRotation = Quaternion.Euler(Vector3.zero);
+            PLayStartLevelMusic();
         }
 
         public void RestartLevel()
@@ -57,6 +62,19 @@ namespace valsesv._Project.Scripts.Managers.GameScene
                 Destroy(_currentLevel);
             }
             GameSceneManager.PauseGameByUIWindow(false);
+        }
+
+        private void PLayStartLevelMusic()
+        {
+            switch (_currentLevelIndex)
+            {
+                case -1:
+                    _soundManager.PlaySound(_endlessLevelSound);
+                    break;
+                default:
+                    _soundManager.PlaySound(_levelSound);
+                    break;
+            }
         }
     }
 }

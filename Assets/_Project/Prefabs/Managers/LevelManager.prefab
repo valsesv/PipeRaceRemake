@@ -70,3 +70,6 @@ MonoBehaviour:
   - {fileID: 3502744186179368774, guid: c9fbfa0e3b0914f1a961ec63c0e87f96, type: 3}
   - {fileID: 7401583822990260397, guid: a506f2e83e6f94c99b5732bc44fd8e15, type: 3}
   - {fileID: 8233316572817788293, guid: 3dde4d4039d1648429b424a436d0c9ff, type: 3}
+  _tutorialSound: {fileID: 8300000, guid: e1daf69a044aa684ab7ab58fd6e275ae, type: 3}
+  _levelSound: {fileID: 8300000, guid: e6d916687f02717478f3390ba0d10b77, type: 3}
+  _endlessLevelSound: {fileID: 8300000, guid: 9155929299eaabf42ad551112b3b32d3, type: 3}
