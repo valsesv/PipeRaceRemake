@@ -112,7 +112,7 @@ namespace valsesv._Project.Scripts.Game
 
         private void SetSpeedWithAcceleration(float targetSpeed)
         {
-            targetSpeed *= _effectsManager.InverseControl;
+            targetSpeed *= _effectsManager.InverseControl * _effectsManager.SpeedMultiplier;
             if (_targetSpeed == targetSpeed)
             {
                 return;

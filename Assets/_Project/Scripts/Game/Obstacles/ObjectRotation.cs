@@ -5,7 +5,7 @@ namespace valsesv._Project.Scripts.Game.Obstacles
 {
     public class ObjectRotation : MonoBehaviour
     {
-        private float _rotationSpeed = 120f;
+        private float _rotationSpeed = 45f;
 
         [Inject] private EffectsManager _effectsManager;
 
