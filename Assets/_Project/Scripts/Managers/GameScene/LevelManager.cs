@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using valsesv._Project.Scripts.Game;
 using valsesv._Project.Scripts.Managers.GameStatesManagement;
@@ -18,9 +19,11 @@ namespace valsesv._Project.Scripts.Managers.GameScene
         [Inject] private DiContainer _container;
 
         public int LevelCount => _levels.Length;
-        public int _currentLevelIndex { get; private set; }
+        public int CurrentLevelIndex { get; private set; }
 
-        private GameObject _currentLevel;
+        public GameObject CurrentLevel { get; private set; }
+
+        public event Action OnLevelLoaded;
 
         public void FinishLevel()
         {
@@ -31,43 +34,44 @@ namespace valsesv._Project.Scripts.Managers.GameScene
         public void StartLevel(int levelIndex)
         {
             UnloadLevel();
-            _currentLevelIndex = levelIndex;
+            CurrentLevelIndex = levelIndex;
             _projectStateController.SetState(ProjectState.Game);
             var targetLevel = _levels[levelIndex];
-            _currentLevel = _container.InstantiatePrefab(targetLevel);
-            _currentLevel.transform.SetParent(_levelMovement.transform);
-            _currentLevel.transform.localRotation = Quaternion.Euler(Vector3.zero);
+            CurrentLevel = _container.InstantiatePrefab(targetLevel);
+            CurrentLevel.transform.SetParent(_levelMovement.transform);
+            CurrentLevel.transform.localRotation = Quaternion.Euler(Vector3.zero);
             PLayStartLevelMusic();
+            OnLevelLoaded?.Invoke();
         }
 
         public void RestartLevel()
         {
-            StartLevel(_currentLevelIndex);
+            StartLevel(CurrentLevelIndex);
         }
 
         public void NextLevel()
         {
-            if (_currentLevelIndex >= LevelCount)
+            if (CurrentLevelIndex >= LevelCount)
             {
                 Debug.LogError("No next level");
                 return;
             }
 
-            StartLevel(_currentLevelIndex + 1);
+            StartLevel(CurrentLevelIndex + 1);
         }
 
         private void UnloadLevel()
         {
-            if (_currentLevel != null)
+            if (CurrentLevel != null)
             {
-                Destroy(_currentLevel);
+                Destroy(CurrentLevel);
             }
             GameSceneManager.PauseGameByUIWindow(false);
         }
 
         private void PLayStartLevelMusic()
         {
-            switch (_currentLevelIndex)
+            switch (CurrentLevelIndex)
             {
                 case -1:
                     _soundManager.PlaySound(_endlessLevelSound);

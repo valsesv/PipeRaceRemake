@@ -13,6 +13,7 @@ namespace valsesv._Project.Scripts.Resources
         [SerializeField] private MenuPanelsManager menuPanelsManager;
         [SerializeField] private LevelManager levelManager;
         [SerializeField] private LevelMovement levelMovement;
+        [SerializeField] private Player player;
 
         public override void InstallBindings()
         {
@@ -21,6 +22,7 @@ namespace valsesv._Project.Scripts.Resources
             Container.Bind<MenuPanelsManager>().FromInstance(menuPanelsManager).AsSingle();
             Container.Bind<LevelManager>().FromInstance(levelManager).AsSingle();
             Container.Bind<LevelMovement>().FromInstance(levelMovement).AsSingle();
+            Container.Bind<Player>().FromInstance(player).AsSingle();
         }
     }
 }
