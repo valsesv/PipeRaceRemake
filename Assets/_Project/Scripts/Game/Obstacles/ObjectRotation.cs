@@ -1,14 +1,22 @@
 ﻿using UnityEngine;
+using Zenject;
 
 namespace valsesv._Project.Scripts.Game.Obstacles
 {
     public class ObjectRotation : MonoBehaviour
     {
-        [SerializeField] private float _rotationSpeed = 270f;
+        private float _rotationSpeed = 120f;
+
+        [Inject] private EffectsManager _effectsManager;
 
         private void Update()
         {
-            var rotationAmount = new Vector3(0, 0, _rotationSpeed) * Time.deltaTime;
+            if (_effectsManager.IsRotating180)
+            {
+                return;
+            }
+
+            var rotationAmount = new Vector3(0, 0, _rotationSpeed) * Time.deltaTime * _effectsManager.SpeedMultiplier;
             transform.Rotate(rotationAmount);
         }
     }

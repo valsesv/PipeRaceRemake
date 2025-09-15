@@ -14,6 +14,7 @@ namespace valsesv._Project.Scripts.Resources
         [SerializeField] private LevelManager levelManager;
         [SerializeField] private LevelMovement levelMovement;
         [SerializeField] private Player player;
+        [SerializeField] private EffectsManager effectsManager;
 
         public override void InstallBindings()
         {
@@ -23,6 +24,7 @@ namespace valsesv._Project.Scripts.Resources
             Container.Bind<LevelManager>().FromInstance(levelManager).AsSingle();
             Container.Bind<LevelMovement>().FromInstance(levelMovement).AsSingle();
             Container.Bind<Player>().FromInstance(player).AsSingle();
+            Container.Bind<EffectsManager>().FromInstance(effectsManager).AsSingle();
         }
     }
 }

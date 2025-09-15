@@ -8,6 +8,7 @@ namespace valsesv._Project.Scripts.Game
     {
         [SerializeField] private Vector3 _motionSpeed;
         [Inject] private ProjectStateController _gameStateController;
+        [Inject] private EffectsManager _effectsManager;
 
         private void Update()
         {
@@ -16,7 +17,12 @@ namespace valsesv._Project.Scripts.Game
                 return;
             }
 
-            var moveAmount = _motionSpeed * Time.deltaTime;
+            if (_effectsManager.IsRotating180)
+            {
+                return;
+            }
+
+            var moveAmount = _motionSpeed * Time.deltaTime * _effectsManager.SpeedMultiplier;
             transform.Translate(moveAmount);
         }
     }

@@ -19,6 +19,8 @@ namespace valsesv._Project.Scripts.Game
 
         private Tween _speedTween;
 
+        [Inject] private EffectsManager _effectsManager;
+
         private void OnEnable()
         {
             _speedTween?.Kill();
@@ -27,6 +29,10 @@ namespace valsesv._Project.Scripts.Game
         private void Update()
         {
             if (_gameStateController.State != ProjectState.Game)
+            {
+                return;
+            }
+            if (_effectsManager.IsRotating180)
             {
                 return;
             }
@@ -106,6 +112,7 @@ namespace valsesv._Project.Scripts.Game
 
         private void SetSpeedWithAcceleration(float targetSpeed)
         {
+            targetSpeed *= _effectsManager.InverseControl;
             if (_targetSpeed == targetSpeed)
             {
                 return;

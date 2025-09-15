@@ -12,6 +12,7 @@ namespace valsesv._Project.Scripts.Game.Obstacles
         public GameEffectType _effectType { get; protected set; }
 
         [Inject] private SoundManager _soundManager;
+        [Inject] private EffectsManager _effectsManager;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -26,6 +27,7 @@ namespace valsesv._Project.Scripts.Game.Obstacles
         protected virtual void ApplyEffect()
         {
             _soundManager.PlaySound(_effectSound);
+            _effectsManager.ApplyEffect(_effectType, _duration);
         }
     }
 }
