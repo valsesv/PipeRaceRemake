@@ -5,7 +5,7 @@ namespace valsesv._Project.Scripts.Game.Obstacles
 {
     public class SizeUp : MonoBehaviour
     {
-        [SerializeField] private float _scaleUpDistance = 35;
+        private float _scaleUpDistance = 10;
         [SerializeField] private float _scaleUpDuration = 0.5f;
         private bool _isAnimated;
         private Vector3 targetScale;

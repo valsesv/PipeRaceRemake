@@ -12,8 +12,9 @@ namespace valsesv._Project.Scripts.Game
         public float SpeedMultiplier { get; private set; } = 1f;
         public float RotationDuration { get; private set; }
         public bool IsRotating180 { get; private set; }
-        public float _inversionControlTimer {get; private set;}
-        public float _speedUpTimer {get; private set;}
+        public float _inversionControlTimer { get; private set; }
+        public float _speedUpTimer { get; private set; }
+        public float _changeSkinTimer { get; private set; }
 
         public List<GameEffectType> Effects { get; private set; } = new List<GameEffectType>();
 
@@ -43,6 +44,8 @@ namespace valsesv._Project.Scripts.Game
                 InversionControlTimer();
             if (Effects.Contains(GameEffectType.SpeedUp))
                 SpeedUpTimer();
+            if (Effects.Contains(GameEffectType.ChangeSkinEffect))
+                ChangeSkinTimer();
         }
 
         public void ApplyEffect(GameEffectType effectType, float duration)
@@ -63,6 +66,10 @@ namespace valsesv._Project.Scripts.Game
                     IsRotating180 = true;
                     RotationDuration = duration;
                     Effects.Add(GameEffectType.Rotate180);
+                    break;
+                case GameEffectType.ChangeSkinEffect:
+                    _changeSkinTimer += duration;
+                    Effects.Add(GameEffectType.ChangeSkinEffect);
                     break;
             }
         }
@@ -94,6 +101,15 @@ namespace valsesv._Project.Scripts.Game
             }
         }
 
+        private void ChangeSkinTimer()
+        {
+            _changeSkinTimer -= Time.deltaTime;
+            if (_changeSkinTimer <= 0)
+            {
+                Effects.Remove(GameEffectType.ChangeSkinEffect);
+            }
+        }
+
         private void ResetEffects()
         {
             Effects.Clear();
@@ -101,6 +117,9 @@ namespace valsesv._Project.Scripts.Game
             SpeedMultiplier = 1;
             IsRotating180 = false;
             RotationDuration = 0;
+            _changeSkinTimer = 0f;
+            _speedUpTimer = 0f;
+            _inversionControlTimer = 0f;
         }
     }
 }

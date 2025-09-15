@@ -4,6 +4,7 @@ namespace valsesv._Project.Scripts.Game.Obstacles
     {
         SpeedUp,
         InversionControl,
-        Rotate180
+        Rotate180,
+        ChangeSkinEffect
     }
 }

@@ -13,6 +13,9 @@ namespace valsesv._Project.Scripts.UI.Displays
         [SerializeField] private GameObject _rotationEffect;
         [SerializeField] private GameObject _inversionEffect;
         [SerializeField] private TextMeshProUGUI _inversControlDurationLeft;
+        [SerializeField] private GameObject _changeSkinEffect;
+        [SerializeField] private TextMeshProUGUI _changeSkinDurationLeft;
+
 
         [Inject] private EffectsManager _effectsManager;
 
@@ -28,6 +31,7 @@ namespace valsesv._Project.Scripts.UI.Displays
             UpdateEffect(_speedUpEffect, _effectsManager._speedUpTimer, _speedUpDurationLeft);
             _rotationEffect.SetActive(_effectsManager.IsRotating180);
             UpdateEffect(_inversionEffect, _effectsManager._inversionControlTimer, _inversControlDurationLeft);
+            UpdateEffect(_changeSkinEffect, _effectsManager._changeSkinTimer, _changeSkinDurationLeft);
         }
 
         private void UpdateEffect(GameObject effect, float durationLeft, TextMeshProUGUI durationLeftText = null)

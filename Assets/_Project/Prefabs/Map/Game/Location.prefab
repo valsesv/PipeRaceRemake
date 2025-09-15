@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _acceleration: 180
-  _maxSpeed: -90
+  _maxSpeed: -120
   leftMoveKeys: 6100000014010000
   rightMoveKeys: 1301000064000000
 --- !u!114 &332554222065819528
@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89f245c3f39ad4247a146bea29fe9868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _motionSpeed: {x: 0, y: 0, z: -10}
+  _motionSpeed: {x: 0, y: 0, z: -15}
 --- !u!114 &3462598939793725432
 MonoBehaviour:
   m_ObjectHideFlags: 0
