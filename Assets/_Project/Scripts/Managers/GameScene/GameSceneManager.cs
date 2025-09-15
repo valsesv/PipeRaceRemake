@@ -8,6 +8,7 @@ namespace valsesv._Project.Scripts.Managers.GameScene
     {
         [Inject] private GamePanelsManager _gamePanelsManager;
 
+        public bool IsWin { get; private set; } = false;
 
         public static void PauseGameByUIWindow(bool isPaused)
         {
@@ -21,11 +22,13 @@ namespace valsesv._Project.Scripts.Managers.GameScene
 
         public void WinGame()
         {
+            IsWin = true;
             FinishGame();
         }
 
         public void LoseGame()
         {
+            IsWin = false;
             FinishGame();
         }
 

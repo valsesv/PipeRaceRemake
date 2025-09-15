@@ -42,7 +42,6 @@ namespace valsesv._Project.Scripts.UI.GamePanels
             {
                 base.CloseWindow();
                 _gameSceneManager.FinishGameInstantly();
-                GameSceneManager.PauseGameByUIWindow(false);
             };
             _projectPanelsManager.ConfirmPanel.OpenPanel();
         }
