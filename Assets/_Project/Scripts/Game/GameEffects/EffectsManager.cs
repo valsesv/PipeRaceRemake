@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using valsesv._Project.Scripts.Game.Obstacles;
+using valsesv._Project.Scripts.Managers.GameStatesManagement;
+using Zenject;
 
 namespace valsesv._Project.Scripts.Game
 {
@@ -10,17 +12,37 @@ namespace valsesv._Project.Scripts.Game
         public float SpeedMultiplier { get; private set; } = 1f;
         public float RotationDuration { get; private set; }
         public bool IsRotating180 { get; private set; }
-        private float _inversionControlTimer;
-        private float _speedUpTimer;
+        public float _inversionControlTimer {get; private set;}
+        public float _speedUpTimer {get; private set;}
 
         public List<GameEffectType> Effects { get; private set; } = new List<GameEffectType>();
+
+        [Inject] private ProjectStateController _gameStateController;
+
+        private void OnEnable()
+        {
+            _gameStateController.OnStateChangedEvent += OnStateChanged;
+        }
+
+        private void OnDisable()
+        {
+            _gameStateController.OnStateChangedEvent -= OnStateChanged;
+        }
+
+        private void OnStateChanged(ProjectState state)
+        {
+            if (state == ProjectState.Menu)
+            {
+                ResetEffects();
+            }
+        }
 
         private void Update()
         {
             if (Effects.Contains(GameEffectType.InversionControl))
-            InversionControlTimer();
+                InversionControlTimer();
             if (Effects.Contains(GameEffectType.SpeedUp))
-            SpeedUpTimer();
+                SpeedUpTimer();
         }
 
         public void ApplyEffect(GameEffectType effectType, float duration)
@@ -70,6 +92,15 @@ namespace valsesv._Project.Scripts.Game
                 Effects.Remove(GameEffectType.SpeedUp);
                 SpeedMultiplier = 1;
             }
+        }
+
+        private void ResetEffects()
+        {
+            Effects.Clear();
+            InverseControl = 1;
+            SpeedMultiplier = 1;
+            IsRotating180 = false;
+            RotationDuration = 0;
         }
     }
 }
